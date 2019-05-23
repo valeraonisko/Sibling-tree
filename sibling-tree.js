@@ -1,19 +1,13 @@
-const treeUls = document.getElementsByTagName('ul')[0];
+const treeUl = document.querySelector('ul');
 const treeLis = document.querySelectorAll('li');
-for (let i = 0; i< treeLis.length; i++) {
-  let li = treeLis[i];
-  let span = document.createElement('span');
-  li.insertBefore(span, li.firstChild);
-  span.appendChild(span.nextSibling);
-}
 
-treeUls.addEventListener('click', (event)=>{
-  let target = event.target;
+treeUl.addEventListener('click', (event)=>{
+  const target = event.target;
   if (target.tagName != 'SPAN') {
     return;
   }
-  let li = target.parentNode;
-  let childrenContainer = li.getElementsByTagName('ul')[0];
+  const li = target.parentNode;
+  const childrenContainer = li.querySelector('ul');
   if (!childrenContainer) {
     return;
   }
